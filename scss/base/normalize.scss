@@ -1,0 +1,60 @@
+@import 'normalize/csstools';
+@import 'normalize/necolas';
+
+// @font-face {
+//     font-family: 'Material Icons';
+//     font-display: block;
+// }
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 1px;
+    min-height: 100%;
+    margin: 0;
+}
+
+h1 {
+    margin: 0.67em 0;
+    font-size: 2em;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    &,
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::selection {
+        background: rgba(76, 125, 225, 0.18);
+    }
+}
+
+img {
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none !important;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+button {
+    border: 0;
+    outline: 0;
+}

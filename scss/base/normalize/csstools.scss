@@ -1,0 +1,89 @@
+/* stylelint-disable selector-no-vendor-prefix */
+/* stylelint-disable property-no-vendor-prefix */
+
+//----------------------------------------------------------------------------------------
+// https://github.com/csstools/normalize.css/blob/master/normalize.css [customized]
+//----------------------------------------------------------------------------------------
+
+/**
+  * 1. Correct the line height in all browsers.
+  * 2. Prevent adjustments of font size after orientation changes in iOS.
+*/
+html {
+    line-height: 1.15; // 1
+    text-size-adjust: 100%; // 2
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Correct the inheritance of border color in Firefox.
+ * 3. Show the overflow in Edge 18- and IE.
+ */
+hr {
+    box-sizing: content-box; // 1
+    height: 0; // 1
+    overflow: visible; // 3
+    color: inherit; // 2
+}
+
+/**
+ * Add the correct display in IE.
+ */
+main {
+    display: block;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Safari.
+ */
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54;
+}
+
+/**
+ * Remove the inner padding in Chrome, Edge, and Safari on macOS.
+ */
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style upload buttons in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+    -webkit-appearance: button; // 1
+    font: inherit; // 2
+}
+
+/**
+ * Add the correct display in IE 10-.
+ */
+[hidden] {
+    display: none;
+}

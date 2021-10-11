@@ -1,0 +1,225 @@
+@use 'sass:math';
+
+$navbar-result-container-bg: #f3f4f6;
+
+.#{$prefix}-navbar {
+    $navbar-button-size: 48px;
+
+    z-index: 5;
+    width: 100%;
+    height: $navbar-desktop-height;
+    user-select: none;
+
+    &.active {
+        .#{$prefix}-searchbox {
+            position: fixed;
+
+            &-result-container {
+                display: flex;
+            }
+
+            &-button {
+                opacity: 1 !important;
+            }
+        }
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    &-buttons {
+        position: fixed;
+        top: (164px - $navbar-button-size) * 0.5;
+        left: calc((100vw - #{$web-max-width}) / 2 - #{$navbar-button-size + 64px - 24px});
+        z-index: 11;
+        width: $navbar-button-size;
+
+        a {
+            cursor: default;
+        }
+    }
+
+    &-button {
+        position: relative;
+        width: $navbar-button-size;
+        height: $navbar-button-size;
+        margin-bottom: math.div($navbar-button-size, 2.5);
+        color: #a9a9a9;
+        text-align: center;
+        cursor: pointer;
+        //background-color: #f5f5f5;
+        background-color: rgba($color-gray-900, 0.04);
+        border-radius: $navbar-button-size*0.5;
+        transition: color 300ms, background-color 300ms;
+
+        &:hover {
+            color: #555;
+            background-color: rgba($color-gray-900, 0.06);
+        }
+
+        &[data-tooltip]::before {
+            position: absolute;
+            top: ($navbar-button-size - (12px + 2 * 10px)) * 0.5;
+            right: ($navbar-button-size + 12px);
+            width: auto;
+            padding: 10px 14px;
+            overflow: hidden;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 12px;
+            color: #fff;
+            white-space: nowrap;
+            pointer-events: none;
+            content: attr(data-tooltip);
+            background-color: rgba($color-gray-900, 0.5);
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 300ms;
+        }
+
+        &[data-tooltip]:hover::before {
+            opacity: 1;
+        }
+
+        &.shrink > i {
+            font-size: 24px;
+        }
+
+        &.save {
+            color: #fff;
+            background-color: $color-green-2;
+        }
+
+        &.delete {
+            color: #fff;
+            background-color: $color-red;
+        }
+
+        > i {
+            width: $navbar-button-size;
+            height: $navbar-button-size;
+            font-size: 30px;
+            line-height: $navbar-button-size;
+        }
+    }
+}
+
+.#{$prefix}-searchbox {
+    position: relative;
+    right: 0;
+    left: 0;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    height: 164px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    &-result {
+        position: relative;
+        display: flex;
+        align-items: center;
+        float: left;
+        width: 49%;
+        height: 64px;
+        padding: 0 24px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        background-color: lighten($navbar-result-container-bg, 3%);
+        border: 1px solid darken($navbar-result-container-bg, 4%);
+        border-radius: 6px;
+
+        &:nth-child(2n) {
+            margin-right: 2%;
+        }
+
+        &:hover {
+            border: 1px solid darken($navbar-result-container-bg, 9%);
+        }
+
+        &-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 8;
+            display: none;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: $navbar-result-container-bg;
+        }
+
+        &-wrapper {
+            padding-top: 164px;
+
+            &-label {
+                display: block;
+                float: left;
+                width: 100%;
+                margin: 0 0 16px 0;
+                font-size: 15px;
+                font-weight: 700;
+                color: rgba($color-gray-900, 0.4);
+            }
+        }
+
+        span {
+            float: left;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba($color-gray-900, 0.7);
+        }
+    }
+
+    &-input {
+        // margin: 64px 0;
+        z-index: 10;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0 48px 0 0;
+        margin: 0;
+        font-size: 24px;
+        line-height: 36px;
+        background-color: inherit;
+        border: 0;
+
+        &::placeholder {
+            color: #b2b2b2;
+        }
+    }
+
+    &-button {
+        $space-between-icon-and-span: 16px;
+
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        width: 120px + $space-between-icon-and-span;
+        height: 36px;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        color: $color-blue;
+        cursor: pointer;
+        border: 2px solid $color-blue;
+        border-radius: 6px;
+        opacity: 0.4;
+        transition: opacity 300ms;
+
+        > i {
+            width: 14px;
+            height: 14px;
+            margin: 0 $space-between-icon-and-span 0 0;
+            line-height: 14px;
+            transform: scale(0.85);
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

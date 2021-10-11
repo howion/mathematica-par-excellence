@@ -1,0 +1,25 @@
+.ma-map {
+    @include ma-prefer-performance;
+
+    // .react-transform-element {
+    //     will-change: transform;
+    // }
+
+    &-map {
+        display: block;
+        width: 100vw;
+        height: 100%;
+        // touch-action: manipulation;
+        user-select: none;
+    }
+
+    &-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,101 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URI")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum ActivityType {
+    BLOB_UPDATE
+    BLOB_CREATE
+    BLOB_DELETE
+    ACCOUNT_UPDATE
+    ACCOUNT_CREATE
+    ACCOUNT_DELETE
+}
+
+enum BlobKind {
+    AXIOM
+    DEFINITION
+    THEOREM
+}
+
+enum UserRole {
+    USER
+    ADMIN
+}
+
+model Activity {
+    id                  Int          @id @default(autoincrement()) @db.UnsignedInt
+    user                User         @relation(fields: [user_id], references: [id])
+    user_id             Int          @db.UnsignedInt
+    type                ActivityType
+    extra               Json         @db.Json
+    create_time         DateTime     @default(now())
+}
+
+model Mark {
+    id                  Int          @id @default(autoincrement()) @db.UnsignedInt
+    name                String       @db.VarChar(255) @unique
+    color               String       @db.Char(6) @default("edf2f6")
+    blobs               Blob[]
+    create_time         DateTime     @default(now())
+    update_time         DateTime     @updatedAt
+}
+
+model Branch {
+    id                  Int          @id @default(autoincrement()) @db.UnsignedInt
+    name                String       @db.VarChar(255)
+    code                String       @db.VarChar(255) @unique
+    parent_id           Int?         @db.UnsignedInt
+    parent              Branch?      @relation("BranchTree", fields: [parent_id], references: [id])
+    children            Branch[]     @relation("BranchTree")
+    blobs               Blob[]
+    create_time         DateTime     @default(now())
+    update_time         DateTime     @updatedAt
+}
+
+model User {
+      id                Int          @id @default(autoincrement()) @db.UnsignedInt
+
+      name              String       @db.VarChar(255)
+      surname           String       @db.VarChar(255)
+
+      username          String       @db.VarChar(255) @unique
+      email             String       @db.VarChar(255) @unique
+      email_verified    Boolean      @default(false)
+      secret            String       @db.VarChar(255)
+
+      role              UserRole     @default(USER)
+
+      avatar            String       @db.VarChar(255) @default("")
+      bio               String       @db.VarChar(255) @default("")
+
+      activities        Activity[]
+      blobs_initiated   Blob[]
+
+      create_time       DateTime     @default(now())
+      update_time       DateTime     @updatedAt
+}
+
+model Blob {
+    id                  Int          @id @default(autoincrement()) @db.UnsignedInt
+    name                String       @db.VarChar(255)
+    code                String       @db.VarChar(255)
+
+    kind                BlobKind
+
+    initiator_id        Int          @db.UnsignedInt
+    initiator           User         @relation(fields: [initiator_id], references: [id])
+
+    branch_id           Int          @db.UnsignedInt
+    branch              Branch       @relation(fields: [branch_id], references: [id])
+
+    marks               Mark[]
+    markdown            String       @db.Text
+
+    create_time         DateTime     @default(now())
+    update_time         DateTime     @updatedAt
+}

@@ -1,0 +1,9 @@
+.ma-home {
+    @include ma-prefer-quality;
+    background-color: #fff;
+    //background-color: #f3f4f6;
+
+    &-container {
+        padding-bottom: 64px;
+    }
+}

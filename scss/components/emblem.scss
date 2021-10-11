@@ -1,0 +1,29 @@
+@keyframes #{$prefix}-emblem-animation {
+    0% { stroke-dashoffset: 2802px; }
+    100% { stroke-dashoffset: -2802px; }
+}
+
+.#{$prefix}-emblem {
+    $overflow: 8px;
+
+    display: block;
+    width: 68px + ($overflow * 2);
+
+    height: 72px + ($overflow * 2);
+    transition: opacity 1500ms;
+
+    > svg {
+        width: 100%;
+        height: 100%;
+        padding: $overflow;
+        overflow: visible;
+
+        > path {
+            stroke: #333;
+            stroke-dasharray: 2802px;
+            stroke-dashoffset: 2802px;
+            stroke-width: 24px;
+            animation: #{$prefix}-emblem-animation 3s linear infinite;
+        }
+    }
+}

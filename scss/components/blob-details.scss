@@ -1,0 +1,43 @@
+.#{$prefix}-blob-details {
+    $tr-gap-y: 0.625rem;
+    $tr-gap-between: 1.5rem;
+
+    display: table;
+    width: 100%;
+    max-width: 500px;
+    font-size: 15px;
+    line-height: 20px;
+    white-space: nowrap;
+    table-layout: auto;
+    border-collapse: collapse;
+
+    &-wrapper {
+        //margin: (64px - 12px) 0 0 (36px + -64px);
+        margin: 64px 0 0 32px;
+    }
+
+    > tbody > tr {
+        height: 20px;
+        padding: 0;
+
+        > td:first-child {
+            width: 1px;
+            padding: $tr-gap-y*0.5 0 $tr-gap-y*0.5 0;
+            font-weight: 600;
+            color: $color-gray-900;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        > td:last-child {
+            width: auto;
+            padding: $tr-gap-y*0.5 0 $tr-gap-y*0.5 $tr-gap-between;
+            color: $color-gray-500;
+            text-align: left;
+        }
+    }
+
+    &-select {
+        min-width: 150px;
+    }
+}

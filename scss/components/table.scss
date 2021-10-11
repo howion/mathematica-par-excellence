@@ -1,0 +1,107 @@
+.#{$prefix}-table {
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    table-layout: auto;
+    border-collapse: collapse;
+
+    &-fitcol {
+        width: 1px !important;
+        white-space: nowrap !important;
+    }
+
+    &-wrapper {
+        overflow-x: auto;
+        border-radius: 6px;
+        box-shadow: 0 0 0 1px rgba($color-gray-900, 0.05);
+    }
+
+    //border: 1px solid #eee;
+
+    > thead {
+        background-color: $color-gray-50;
+        border-bottom: 1px solid #eee;
+
+        th {
+            width: auto;
+            padding: 1.2rem 1.5rem;
+            font-size: 12px;
+            font-weight: 500;
+            color: $color-gray-500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+
+    .action {
+        a {
+            display: block;
+            float: right;
+        }
+
+        i {
+            font-size: 24px;
+            color: $color-blue;
+        }
+    }
+
+    > tbody {
+        tr {
+            color: $color-gray-500;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+
+            &:nth-child(even) {
+                background-color: $color-gray-50;
+            }
+        }
+
+        td {
+            max-width: 0;
+            padding: 0.6rem 1.5rem;
+            overflow: hidden;
+            font-size: 14px;
+            font-weight: 400;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            vertical-align: middle;
+
+            * {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                vertical-align: middle;
+            }
+
+            &:last-child {
+                text-align: right;
+            }
+
+            b + small {
+                margin-top: 0.125rem;
+                margin-left: 0.025rem;
+            }
+
+            small {
+                display: block;
+                font-size: 14px;
+                color: $color-gray-400 !important;
+            }
+
+            b {
+                display: block;
+                font-weight: 500;
+            }
+
+            a {
+                display: block;
+                color: $color-blue;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
