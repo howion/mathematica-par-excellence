@@ -1,11 +1,6 @@
-import {APP_NAME} from '/constants/app'
-import {waitForWithPromise} from '/helpers/wait-for'
+import { waitForWithPromise } from '/helpers/wait-for'
 
 export class ClientUtil {
-    static makeTitle(title: text): text {
-        return `${title} - ${APP_NAME}`
-    }
-
     static async waitForDocumentReady(): Promise<void> {
         await waitForWithPromise(() => document.readyState === 'complete')
     }
