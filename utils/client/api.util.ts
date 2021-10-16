@@ -8,7 +8,7 @@ export class APIUtil {
         params: Record<text, any> = {},
         body?: SafeObject | null
     ): Promise<Response> {
-        return APIUtil.fetch(endpoint.method, urlcat(App.baseUrl, endpoint.path, params), body)
+        return APIUtil.fetch(endpoint.method, urlcat(App.api.baseUrl, endpoint.path, params), body)
     }
 
     static async fetch(method: text, url: text, body?: SafeObject | null): Promise<Response> {
