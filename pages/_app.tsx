@@ -46,6 +46,8 @@ import { useDidMount } from 'rooks'
  * COLORS
  */
 
+// TODO: Give fancy cursor speed as css variable!
+
 // export function reportWebVitals(metric: NextWebVitalsMetric): void {
 //     console.log(metric)
 // }
