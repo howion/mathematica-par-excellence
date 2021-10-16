@@ -1,5 +1,5 @@
-import { AppUtil } from '/utils/app.util'
 import { ApiEndpoint } from '/constants/api/api-endpoints'
+import { App } from '/constants/app'
 import urlcat from 'urlcat'
 
 export class APIUtil {
@@ -8,7 +8,7 @@ export class APIUtil {
         params: Record<text, any> = {},
         body?: SafeObject | null
     ): Promise<Response> {
-        return APIUtil.fetch(endpoint.method, urlcat(AppUtil.apiBaseUrl, endpoint.path, params), body)
+        return APIUtil.fetch(endpoint.method, urlcat(App.baseUrl, endpoint.path, params), body)
     }
 
     static async fetch(method: text, url: text, body?: SafeObject | null): Promise<Response> {
