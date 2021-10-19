@@ -23,6 +23,8 @@ export class BlobUtil {
                 return 'DEF'
             case 'THEOREM':
                 return 'THM'
+            case 'FORMULA':
+                return 'FML'
         }
 
         return '?'
