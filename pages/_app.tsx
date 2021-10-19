@@ -66,10 +66,10 @@ export default function App({Component, pageProps, router}: AppProps): ReactElem
         <>
             <Meta _viewport={true}/>
             <div id="app" ref={appRef}>
-                <FancyCursorProvider>
+                {/*<FancyCursorProvider>
                     <FancyCursor className="app-cursor-inner"/>
                     <FancyCursor className="app-cursor-outer"/>
-                </FancyCursorProvider>
+                </FancyCursorProvider>*/}
                 <Splash/>
                 <Modal/>
                 <div className={`ma-app-container ma-${route}`}>

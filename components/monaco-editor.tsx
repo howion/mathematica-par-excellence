@@ -1,7 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import Editor, { DiffEditor, useMonaco } from '@monaco-editor/react'
 import { MONACO_EDITOR_DEFAULT_OPTIONS } from '/constants/monaco-editor'
-import {useDebounce, useThrottle} from 'rooks'
 
 export interface MonacoEditorProps {
     initialValue: text
@@ -23,7 +22,6 @@ const commonProps = {
 export function MonacoEditor(props: MonacoEditorProps): ReactElement {
     const [didRender, setDidRender] = useState(false)
     const [value, setValue] = useState<text>(props.initialValue)
-    const onUpdateDebounced = useDebounce(() => props.onValueUpdate(value), 50)
     const monaco = useMonaco()
 
     if (!didRender && monaco) {
@@ -50,10 +48,10 @@ export function MonacoEditor(props: MonacoEditorProps): ReactElement {
                 options: { ...commonProps.options, readOnly: false }
             }}
             value={props.initialValue}
-            onChange={async (newValue) => {
+            onChange={(newValue) => {
                 if (newValue === undefined) newValue = ''
                 setValue(newValue)
-                onUpdateDebounced()
+                props.onValueUpdate(newValue)
             }}
         />
     )

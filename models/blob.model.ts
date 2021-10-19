@@ -165,10 +165,10 @@ export class BlobModel {
             id: -1,
             name: '',
             code: '',
-            kind: 'AXIOM',
+            kind: 'THEOREM',
             markdown: '',
             initiator: (await UserModel.whereUsernameLite('howion')) as UserSchemaLite,
-            branch: (await BranchModel.whereCodeLite('test-branch')) as BranchSchemaLite,
+            branch: (await BranchModel.whereCodeLite('mathematics')) as BranchSchemaLite,
             marks: [],
             create_time: now,
             update_time: now

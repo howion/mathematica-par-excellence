@@ -16,5 +16,6 @@ md.use(MarkdownItKatex, { throwOnError: false })
 
 // Service
 export function mdit(src: text): text {
+    console.log(src)
     return md.render(src)
 }
