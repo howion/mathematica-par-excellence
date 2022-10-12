@@ -5,7 +5,6 @@ import { SplashService } from '/services/splash.service'
 import { _404Navbar } from '/constants/navbars/404.navbar'
 import { Meta } from '/components/meta'
 
-// TODO:
 export default function _404(): ReactElement {
     useDidMount(() => {
         NavbarService.update(_404Navbar())
