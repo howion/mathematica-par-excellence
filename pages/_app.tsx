@@ -37,7 +37,7 @@ import { useDidMount } from 'rooks'
  * RELATED RECORDS
  * RELATED LINKS
  * DEPENDENCY CHART
- * AUTH!
+ * AUTH
  * 404 PAGE
  * BETTER HOMEPAGE
  * CUSTOMIZATIONS
