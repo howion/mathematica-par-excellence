@@ -32,6 +32,7 @@
         "@types/svgo": "^2.6.4",
         "@types/three": "^0.152.0",
         "@types/uniqid": "^5.3.2",
+        "@vercel/analytics": "^1.0.1",
         "auto-bind": "^5.0.1",
         "citation-js": "^0.6.8",
         "classnames": "^2.3.2",

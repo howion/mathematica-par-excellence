@@ -1,6 +1,9 @@
 // PACKAGES
 import React, { ReactElement, useRef } from 'react'
 import { AppProps } from 'next/app'
+import { useDidMount } from 'rooks'
+import { Analytics } from '@vercel/analytics/react'
+
 
 // COMPONENTS
 import { Modal } from '/components/modal'
@@ -13,7 +16,6 @@ import '/scss/main.scss'
 
 import { FancyCursor, FancyCursorProvider } from '/lib/fancy-cursor'
 // import SmoothScrollbar from 'smooth-scrollbar'
-import { useDidMount } from 'rooks'
 
 // DYNAMICS
 // const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
@@ -77,6 +79,7 @@ export default function App({Component, pageProps, router}: AppProps): ReactElem
                     <Component {...pageProps} appRef={appRef}/>
                 </div>
             </div>
+            <Analytics />
         </>
     )
 }
