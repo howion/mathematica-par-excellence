@@ -1,10 +1,9 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { ConditionalWrapper } from '../helpers/conditional-wrapper'
 import { NavbarService, NavbarServiceObject } from '/services/navbar.service'
 import { useService } from '/hooks/use-service'
 import { SplashService } from '/services/splash.service'
 import c from 'classnames'
-import { useState } from 'preact/compat'
 
 export interface NavbarButtonProps {
     icon: text
