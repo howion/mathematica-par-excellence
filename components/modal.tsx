@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { ModalService } from '/services/modal.service'
+import { ModalService, ModalServiceObject } from '/services/modal.service'
 import cns from 'classnames'
 import { useService } from '/hooks/use-service'
 
@@ -23,7 +23,7 @@ export function ModalButton(props: ModalButtonProps): ReactElement
 
 export function Modal(): ReactElement
 {
-    const modalObj = useService(ModalService, {
+    const modalObj = useService<ModalServiceObject>(ModalService, {
         hidden: true,
         title: '',
         text: '',

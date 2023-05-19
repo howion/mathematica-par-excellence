@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react'
-import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
+// import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
+
+// TODO: Make this page work!
 
 /**
  * This component should be used only in the client-side!
@@ -9,7 +11,7 @@ export function Map(): ReactElement {
 
     return (
         <div className="ma-map-wrapper">
-            <TransformWrapper
+            {/* <TransformWrapper
                 defaultScale={3}
                 defaultPositionX={-w}
                 defaultPositionY={-((w * 3) / 2) + h / 2}
@@ -33,7 +35,7 @@ export function Map(): ReactElement {
                 <TransformComponent>
                     <img className="ma-map-map" src={'/api/map'} alt="" />
                 </TransformComponent>
-            </TransformWrapper>
+            </TransformWrapper> */}
         </div>
     )
 }

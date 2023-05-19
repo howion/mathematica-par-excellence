@@ -1,10 +1,8 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import cns from 'classnames'
 
-type elm = null | Element | ReactElement | React.Component
-
 export interface BlobSectionProps {
-    children: elm | elm[]
+    children: ReactNode
     title?: text
     className?: text
 }
@@ -18,6 +16,6 @@ export function BlobSection(props: BlobSectionProps | any): ReactElement {
     )
 }
 
-export function BlobSectionCol2({ children }: { children: elm | elm[] }): ReactElement {
+export function BlobSectionCol2({ children }: { children: ReactNode }): ReactElement {
     return <div className="ma-blob-section-col2">{children}</div>
 }
