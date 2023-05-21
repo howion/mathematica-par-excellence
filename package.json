@@ -3,18 +3,17 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "dev": "yarn next:dev",
+        "dev": "pnpm run next:dev",
         "next:dev": "next dev",
         "next:build": "next build",
         "next:start": "next start",
         "next:export": "next export",
         "next:static": "next build && next export",
         "next:preview": "next build && next start",
-        "prisma:migrate": "npx prisma migrate dev --name init",
         "prisma:generate": "prisma generate",
-        "eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-        "stylelint": "npx stylelint \"scss/**/*.{css,scss,sass}\" --fix",
-        "fix": "yarn stylelint && yarn eslint",
+        "eslint:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
+        "stylelint:fix": "stylelint \"scss/**/*.{css,scss,sass}\" --fix",
+        "fix": "pnpm run eslint:fix && pnpm run stylelint:fix",
         "vercel-build": "prisma generate && prisma migrate deploy && next build"
     },
     "dependencies": {

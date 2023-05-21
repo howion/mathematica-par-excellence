@@ -11,9 +11,10 @@
 *.ppk
 
 # Lock Files
-# npm-shrinkwrap.json
-# package-lock.json
-# yarn.lock
+npm-shrinkwrap.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 ######################################################################
 ## IntelliJ ##
